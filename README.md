@@ -13,3 +13,5 @@ A user named `user` and its password `password` is created by
 
 * [mariadb - Docker Hub](https://hub.docker.com/_/mariadb)
 * [Installing and Using MariaDB via Docker - MariaDB Knowledge Base](https://mariadb.com/kb/en/installing-and-using-mariadb-via-docker/)
+* [phpmyadmin - Docker Hub](https://hub.docker.com/_/phpmyadmin)
+* [Installation — phpMyAdmin 5.2.0-dev documentation](https://docs.phpmyadmin.net/en/latest/setup.html#installing-using-docker)
