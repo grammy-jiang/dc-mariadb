@@ -1,0 +1,38 @@
+version: "3"
+
+services:
+    # https://hub.docker.com/_/mariadb
+    mariadb:
+        container_name: dc-mariadb
+        env_file:
+            - mariadb.env
+        image: mariadb:latest
+        networks:
+            - nw-mariadb
+        ports:
+            - "3306:3306"
+        restart: always
+        tty: true
+        volumes:
+            - "./mariadb-data:/var/lib/mysql"
+            - "./initdb.d:/docker-entrypoint-initdb.d/"
+
+    # https://hub.docker.com/_/phpmyadmin
+    phpmyadmin:
+        container_name: dc-mariadb-phpmyadmin
+        depends_on:
+            - mariadb
+        env_file: mariadb.env
+        environment:
+            PMA_HOST: dc-mariadb
+        image: phpmyadmin:latest
+        networks:
+            - nw-mariadb
+        ports:
+            - "8000:80"
+        restart: always
+        tty: true
+
+networks:
+    nw-mariadb:
+        driver: bridge
